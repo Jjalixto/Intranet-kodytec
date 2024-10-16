@@ -82,6 +82,7 @@
                         width={400}
                         height={200}
                         priority
+                        unoptimized
                         style={{ width: '100%', maxWidth: '400px' }}
                         className="max-w-full max-h-full"
                     />
