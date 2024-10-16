@@ -99,6 +99,7 @@
                                 width={400}
                                 height={200}
                                 priority
+                                unoptimized
                                 className="w-3/4 max-w-xs"
                             />
                         </div>
