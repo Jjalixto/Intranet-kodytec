@@ -22,7 +22,7 @@ const Navbar: FC<SidebarProps> = ({onSelectTable}) => {
     };
 
     return (
-        <div className="max-w-7xl mx-auto px-6 py-4 dark:bg-slate-800">
+        <div className="max-w-8xl mx-auto px-6 py-4 dark:bg-slate-800">
             <div className="relative flex justify-end items-center">
                 <div className="text-2xl px-1">
                     <FaUserCircle />
