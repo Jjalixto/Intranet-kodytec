@@ -67,7 +67,7 @@
 
         const validationSchema = Yup.object().shape({
             codigo: Yup.string().required('Ingresa tu código'),
-            clave: Yup.string().required('Ingresa tu contraseña').min(8, 'La contraseña debe tener al menos 8 caracteres'),
+            clave: Yup.string().required('Ingresa tu contraseña').min(4, 'La contraseña debe tener al menos 8 caracteres'),
         });
 
         const handleSubmit = async (values: LoginFormValues) => {
