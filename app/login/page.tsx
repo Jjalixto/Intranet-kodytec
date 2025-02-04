@@ -5,7 +5,7 @@
     import { Formik, Form, Field, ErrorMessage } from "formik";
     import * as Yup from "yup";
     import { RiGitRepositoryPrivateLine, RiLoaderLine, RiMoonLine, RiSunLine, RiUserLine } from "react-icons/ri";
-    import { loginUser } from "../service/auth.service";
+    // import { loginUser } from "../service/auth.service";
     import Image from "next/image";
 
     interface LoginFormValues {
