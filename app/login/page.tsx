@@ -32,6 +32,39 @@
             clave: '',
         };
 
+        // const validationSchema = Yup.object().shape({
+        //     codigo: Yup.string().required('Ingresa tu código'),
+        //     clave: Yup.string().required('Ingresa tu contraseña').min(8, 'La contraseña debe tener al menos 8 caracteres'),
+        // });
+
+        // const handleSubmit = async (values: LoginFormValues) => {
+        //     setServerError('');
+        //     setLoading(true);
+        //     try {
+        //         const response = await loginUser(values);
+
+        //         if (response.isSuccess) {
+        //             const user = response.data;
+        //             const message = response.message;
+
+        //             localStorage.setItem('usuario', JSON.stringify(user));
+        //             localStorage.setItem('message', message);
+        //             router.push('/dashboard');
+        //         } else {
+        //             setServerError(response.message || 'Credenciales incorrectas');
+        //         }
+        //     } catch (err: unknown) {
+        //         if (err instanceof Error) {
+        //             setServerError(err.message || 'Error al iniciar sesión. Por favor, intenta de nuevo.');
+        //             console.log(err.message);
+        //         } else {
+        //             setServerError('Error al iniciar sesión. Por favor, intenta de nuevo.');
+        //         }
+        //     } finally {
+        //         setLoading(false); // Ocultar pantalla de carga al terminar
+        //     }
+        // };
+
         const validationSchema = Yup.object().shape({
             codigo: Yup.string().required('Ingresa tu código'),
             clave: Yup.string().required('Ingresa tu contraseña').min(8, 'La contraseña debe tener al menos 8 caracteres'),
@@ -41,17 +74,15 @@
             setServerError('');
             setLoading(true);
             try {
-                const response = await loginUser(values);
+                if (values.codigo === 'admin' && values.clave === 'admin') {
+                    const user = { codigo: 'admin', nombre: 'Administrador' };
+                    const message = 'Inicio de sesión exitoso';
 
-                if (response.isSuccess) {
-                    const user = response.data;
-                    const message = response.message;
-        
                     localStorage.setItem('usuario', JSON.stringify(user));
                     localStorage.setItem('message', message);
                     router.push('/dashboard');
                 } else {
-                    setServerError(response.message || 'Credenciales incorrectas');
+                    setServerError('Credenciales incorrectas');
                 }
             } catch (err: unknown) {
                 if (err instanceof Error) {
@@ -63,8 +94,7 @@
             } finally {
                 setLoading(false); // Ocultar pantalla de carga al terminar
             }
-        };
-        
+        };    
         return (
             <div className="flex h-screen">
                 {/* Mostrar pantalla de carga cuando 'loading' esté activo */}
